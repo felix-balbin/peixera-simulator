@@ -86,7 +86,11 @@ public class SteeringAgent : MonoBehaviour
             wanderTimer = 0;
             UpdateTargetPosForWandering();
         }
+        Debug.Log("Wander Position: " + wanderPosition);
+        Debug.Log("Agent Position: " + transform.position);
+
         return Seek(wanderPosition);
+
     }
 
     Vector3 ObstacleAvoidance()
@@ -168,6 +172,8 @@ public class SteeringAgent : MonoBehaviour
         Vector2 randomlyRotatedDisplacementVector = rotation * displacementVector;
 
         Vector2 newTargetPos = circleCenter + randomlyRotatedDisplacementVector;
+
+
         if (target) target.position = newTargetPos;
         wanderPosition = newTargetPos;
     }
